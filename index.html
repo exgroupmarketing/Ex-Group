@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ex Group — Marketing de Performance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1584303893160046');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1584303893160046&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<style>
+  :root{
+    --black:#0E0D0C;
+    --brown:#8c5c31;
+    --gold:#ffd585;
+    --off-white:#F7F3ED;
+    --panel:#17140f;
+    --line:#2c2620;
+    --ink-soft:#b8ada0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Inter', Arial, sans-serif;
+    background:var(--black);
+    color:var(--off-white);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    max-width:560px;
+    margin:0 auto;
+    padding:0 20px 60px;
+  }
+  header{
+    padding:40px 0 28px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:32px;
+    text-align:center;
+  }
+  header img{
+    max-width:180px;
+    margin-bottom:20px;
+  }
+  header h1{
+    font-size:26px;
+    line-height:1.3;
+    margin:0 0 12px;
+    font-weight:700;
+    color:var(--off-white);
+  }
+  header p{
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.5;
+    margin:0;
+  }
+  .progress{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:14px;
+  }
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:28px 24px;
+  }
+  .step{display:none;}
+  .step.active{display:block;}
+  .q{
+    font-size:19px;
+    line-height:1.4;
+    margin:0 0 18px;
+    font-weight:600;
+    color:var(--off-white);
+  }
+  .options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .opt{
+    font-family:'Inter', Arial, sans-serif;
+    text-align:left;
+    padding:14px 16px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:#0E0D0C;
+    font-size:15px;
+    color:var(--off-white);
+    cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .opt:hover{border-color:var(--brown);}
+  .opt.selected{
+    border-color:var(--gold);
+    background:rgba(255,213,133,0.08);
+    font-weight:600;
+    color:var(--gold);
+  }
+  input[type=text]{
+    width:100%;
+    font-family:'Inter', Arial, sans-serif;
+    font-size:16px;
+    padding:14px 16px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    margin-bottom:22px;
+    background:#0E0D0C;
+    color:var(--off-white);
+  }
+  input[type=text]::placeholder{ color:#6b6255; }
+  input[type=text]:focus{outline:2px solid var(--gold); outline-offset:1px;}
+  .conditional{
+    display:none;
+    margin-top:-10px;
+  }
+  .conditional.show{display:block;}
+  .nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .btn-back{
+    background:none;
+    border:none;
+    color:var(--ink-soft);
+    font-size:14px;
+    cursor:pointer;
+    padding:8px 0;
+  }
+  .btn-back:disabled{visibility:hidden;}
+  .btn-next{
+    background:var(--gold);
+    color:var(--black);
+    border:none;
+    border-radius:6px;
+    padding:14px 26px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:background .15s ease, transform .1s ease;
+  }
+  .btn-next:hover{background:#ffcf6e;}
+  .btn-next:disabled{opacity:.35; cursor:not-allowed;}
+  .btn-send{
+    display:block;
+    width:100%;
+    background:linear-gradient(135deg, var(--gold), var(--brown));
+    color:var(--black);
+    border:none;
+    border-radius:6px;
+    padding:16px 20px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    font-family:'Inter', Arial, sans-serif;
+  }
+  .btn-send:hover{opacity:.92;}
+  .summary{
+    font-size:14px;
+    line-height:1.8;
+    color:var(--ink-soft);
+    background:#0E0D0C;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:16px 18px;
+    margin-bottom:20px;
+  }
+  .summary b{color:var(--gold);}
+  footer{
+    text-align:center;
+    font-size:12px;
+    color:#6b6255;
+    margin-top:24px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Aumentamos o faturamento da sua empresa com marketing e vendas.</h1>
+    <p>Combinamos estratégia, dados e execução para atrair demanda qualificada, alinhar marketing e comercial e escalar a geração de receita do seu negócio.</p>
+  </header>
+
+  <div class="progress" id="progress">Pergunta 1 de 5</div>
+
+  <div class="card">
+
+    <!-- Passo 1 -->
+    <div class="step active" data-step="1">
+      <p class="q">Qual a sua função na empresa?</p>
+      <div class="options" id="opts-q1">
+        <button class="opt" onclick="selectOpt(this,'q1','Proprietário')">Proprietário</button>
+        <button class="opt" onclick="selectOpt(this,'q1','Gerente')">Gerente</button>
+        <button class="opt" onclick="selectOpt(this,'q1','Colaborador')">Colaborador</button>
+      </div>
+      <div class="nav">
+        <button class="btn-back" disabled onclick="prevStep()">Voltar</button>
+        <button class="btn-next" id="next1" disabled onclick="nextStep(1)">Avançar</button>
+      </div>
+    </div>
+
+    <!-- Passo 2 -->
+    <div class="step" data-step="2">
+      <p class="q">Qual o @ do Instagram da empresa?</p>
+      <input type="text" id="q2" placeholder="Ex: @exgroup">
+      <div class="nav">
+        <button class="btn-back" onclick="prevStep()">Voltar</button>
+        <button class="btn-next" onclick="nextStep(2)">Avançar</button>
+      </div>
+    </div>
+
+    <!-- Passo 3 -->
+    <div class="step" data-step="3">
+      <p class="q">Já investe em marketing atualmente?</p>
+      <div class="options" id="opts-q3">
+        <button class="opt" onclick="selectOpt(this,'q3','Ainda não invisto')">Ainda não invisto</button>
+        <button class="opt" onclick="selectOpt(this,'q3','Invisto entre R$500 a R$1.000/mês')">Invisto entre R$500 a R$1.000/mês</button>
+        <button class="opt" onclick="selectOpt(this,'q3','Invisto entre R$1.000 a R$3.000/mês')">Invisto entre R$1.000 a R$3.000/mês</button>
+        <button class="opt" onclick="selectOpt(this,'q3','Invisto entre R$3.000 a R$5.000/mês')">Invisto entre R$3.000 a R$5.000/mês</button>
+        <button class="opt" onclick="selectOpt(this,'q3','Invisto acima de R$5.000/mês')">Invisto acima de R$5.000/mês</button>
+      </div>
+      <div class="nav">
+        <button class="btn-back" onclick="prevStep()">Voltar</button>
+        <button class="btn-next" id="next3" disabled onclick="nextStep(3)">Avançar</button>
+      </div>
+    </div>
+
+    <!-- Passo 4 -->
+    <div class="step" data-step="4">
+      <p class="q">Qual seu nome?</p>
+      <input type="text" id="q4" placeholder="Digite seu nome completo">
+      <div class="nav">
+        <button class="btn-back" onclick="prevStep()">Voltar</button>
+        <button class="btn-next" onclick="nextStep(4)">Avançar</button>
+      </div>
+    </div>
+
+    <!-- Passo 5 -->
+    <div class="step" data-step="5">
+      <p class="q">Qual seu número com DDD?</p>
+      <input type="text" id="q5" placeholder="Ex: (18) 99999-9999">
+      <div class="nav">
+        <button class="btn-back" onclick="prevStep()">Voltar</button>
+        <button class="btn-next" onclick="showFinal()">Avançar</button>
+      </div>
+    </div>
+
+    <!-- Resumo final -->
+    <div class="step" data-step="final">
+      <p class="q">Confirme seus dados</p>
+      <div class="summary" id="summaryBox"></div>
+      <button class="btn-send" onclick="goToSchedule()">Enviar e agendar minha reunião</button>
+    </div>
+
+  </div>
+
+  <footer></footer>
+</div>
+
+<script>
+  // ======= CONFIGURAÇÃO — EDITE AQUI =======
+  const LINK_AGENDAMENTO = "https://calendar.app.google/X3S3FFkWa46xQbn99";
+  const NUMERO_WHATSAPP = "5518998242358"; // formato: 55 + DDD + número, sem espaços ou símbolos
+  // ==========================================
+
+  const answers = {};
+  const totalSteps = 5;
+  let currentStep = 1;
+
+  function updateProgress(step){
+    document.getElementById('progress').textContent =
+      step <= totalSteps ? `Pergunta ${step} de ${totalSteps}` : 'Quase lá';
+  }
+
+  function goToStep(step){
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.querySelector(`.step[data-step="${step}"]`).classList.add('active');
+    currentStep = step;
+    updateProgress(step === 'final' ? totalSteps + 1 : step);
+  }
+
+  function nextStep(from){
+    if(from === 2){
+      const val = document.getElementById('q2').value.trim();
+      if(!val){ alert('Digite o @ do Instagram.'); return; }
+      answers.q2 = val;
+    }
+    if(from === 4){
+      const val = document.getElementById('q4').value.trim();
+      if(!val){ alert('Digite seu nome.'); return; }
+      answers.q4 = val;
+    }
+    goToStep(from + 1);
+  }
+
+  function prevStep(){
+    if(currentStep === 'final'){ goToStep(totalSteps); return; }
+    if(currentStep > 1) goToStep(currentStep - 1);
+  }
+
+  function selectOpt(btn, key, value){
+    const group = btn.parentElement;
+    group.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+    btn.classList.add('selected');
+    answers[key] = value;
+
+    const stepEl = btn.closest('.step');
+    const stepNum = stepEl.getAttribute('data-step');
+    const nextBtn = document.getElementById('next' + stepNum);
+    if(nextBtn) nextBtn.disabled = false;
+  }
+
+  function showFinal(){
+    const val = document.getElementById('q5').value.trim();
+    if(!val){ alert('Digite seu número com DDD.'); return; }
+    answers.q5 = val;
+
+    const box = document.getElementById('summaryBox');
+    box.innerHTML = `
+      <b>Função na empresa:</b> ${answers.q1}<br>
+      <b>Instagram:</b> ${answers.q2}<br>
+      <b>Investimento atual:</b> ${answers.q3}<br>
+      <b>Nome:</b> ${answers.q4}<br>
+      <b>Telefone:</b> ${answers.q5}
+    `;
+    goToStep('final');
+  }
+
+  function goToSchedule(){
+    if(typeof fbq === 'function'){
+      fbq('track', 'Lead');
+    }
+
+    const msg =
+`Novo lead qualificado:
+Função na empresa: ${answers.q1}
+Instagram: ${answers.q2}
+Investimento atual: ${answers.q3}
+Nome: ${answers.q4}
+Telefone: ${answers.q5}`;
+
+    const whatsappUrl = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+    window.open(whatsappUrl, '_blank');
+
+    window.location.href = LINK_AGENDAMENTO;
+  }
+</script>
+</body>
+</html>
